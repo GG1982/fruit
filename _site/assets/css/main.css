@@ -325,8 +325,6 @@ body { background: #ffffff; color: #000000; font-family: "Roboto", sans-serif; d
 
 .hero--button::before { content: ""; position: absolute; background-color: #F48803; top: 120%; left: 0; width: 100%; height: 45%; transform: perspective(3em) rotateX(40deg) scale(1, 0.35); filter: blur(1em); }
 
-.hero--img { grid-area: img; background-image: url("../../assets/images/IMG_1703.PNG"); background-position: center; background-repeat: no-repeat; background-size: contain; }
+.hero--img { grid-area: img; background-image: url('{{ "assets/images/lemon1.jpg" | prepend: site.baseurl }} '); background-position: center; background-repeat: no-repeat; background-size: contain; }
 
 @media only screen and (max-width: 600px) { .hero--section--back { grid-template-areas: "content" "img"; margin-inline: 1rem; grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; } .hero--title { text-align: center; } .hero--content { align-items: center; } .hero--section { margin-inline: 0; } }
-
-/*# sourceMappingURL=main.css.map */
