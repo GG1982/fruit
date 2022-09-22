@@ -311,7 +311,7 @@ body { background: #ffffff; color: #000000; font-family: "Roboto", sans-serif; d
 
 .nav--title { color: #F48803; font-size: var(--step-2); }
 
-.hero--title { font-size: var(--step-4); text-transform: capitalize; line-height: 1.1; font-weight: bold; color: #F48803; }
+.hero--title { font-size: var(--step-4); text-transform: capitalize; line-height: 1.125; color: #F48803; }
 
 .img-logo { width: 50px; }
 
