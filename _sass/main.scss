@@ -29,7 +29,7 @@ body {
   height: 100%;
 }
 .home {
-  background: linear-gradient(135deg, rgba(0, 140, 69, 1) 0%, rgba(244, 249, 255, 1) 51%, rgba(205, 33, 42, 1) 100%);  width: 100%;
+  background: linear-gradient(135deg, rgba(0, 140, 69, 1) 0%, rgba(244, 249, 255, 1) 50%, rgba(205, 33, 42, 1) 100%);  width: 100%;
   display: flex;
 }
 
@@ -74,6 +74,11 @@ body {
 }
 
 .hero--section {
+
+  --bg-img: url(/assets/images/leafs-removebg.png);
+  // --bg-img-opacity: 0.4;
+
+
   display: grid;
   gap: 1rem;
   grid-template-columns: 55% 1fr;
@@ -85,11 +90,28 @@ body {
   margin-inline: 2rem;
 
   position: relative;
+  isolation: isolate;
 }
 
+.hero--section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background-color: hsl(350, 100%, 95%);
 
+  opacity: var(--bg-img-opacity);
+
+  background-image: var(--bg-img);
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: 13%;
+}
 
 .hero--content {
+
+
   grid-area: content;
 
   display: flex;
@@ -98,6 +120,7 @@ body {
   gap: 3rem;
 
   margin-inline: 1rem;
+  margin-block: 2rem;
 }
 
 .hero--button {
@@ -122,7 +145,7 @@ body {
   content: "";
   position: absolute;
   
-  background-color: $primaryColor;
+  background-image: linear-gradient(135deg, $primaryColor 45%, $secondaryColor);
   top: 120%;
   left: 0;
   width: 100%;
@@ -135,35 +158,25 @@ body {
 
 .hero--img {
   grid-area: img;    
-  background-image: url('/../../assets/images/IMG_1703.png');
+  background-image: url('assets/images/orange-bg-remove.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 
-  
+  // display: flex;
+  // align-items: start;
+  // justify-content: center;
+  // writing-mode: vertical-rl;
 
-  // background-color: #559F26;
-}
-
-.rotate {
-  position: absolute;
-
-  // background-color: red;
-
-  bottom: 200px;
-  right: 0;
-  transform: rotate(90deg);
-  font-size: 10rem;
-  color: $secondaryColor;
-  letter-spacing: 2px;
-  opacity: 0.5;
+  // font-size: 5rem;
+  // color: $secondaryColor;
+  // letter-spacing: 100px;
 }
 
 
 
 
-
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 650px) {
     .hero--section {
       grid-template-areas: 
       "content"
