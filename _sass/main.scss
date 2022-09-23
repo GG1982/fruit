@@ -1,10 +1,10 @@
 $backgroundColor: #ffffff;
-$bodyColor: #000000;
+$bodyColor: #000;
 $primaryColor: #F48803;
 $secondaryColor: #FAC10A;
 $accentColor: #559F26;
 $bodyFont: 'Roboto', sans-serif;
-$titleFont: 'Libre Baskerville', serif;
+$titleFont: 'Dancing Script', cursive;
 
 :root {
   --step--2:  clamp(0.91rem, calc(0.89rem + 0.10vw), 0.96rem);
@@ -21,6 +21,10 @@ h1, h2, h3, h4 {
   font-family: $titleFont;
 }
 
+p {
+  color: $bodyColor;
+}
+
 body {
   background: $backgroundColor;
   color: $bodyColor;
@@ -35,6 +39,12 @@ body {
 
 .hero {
   background-color: #ffffff;
+  background-image: url(/assets/images/wave.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+
+
   width: calc(Min(100% - 1rem, 100rem, 95%));
   margin-block: 3rem;
   margin-inline: auto;
@@ -58,8 +68,9 @@ body {
 }
 
 .nav--title {
-  color: $primaryColor;
-  font-size: var(--step-2);
+  color: $accentColor;
+  font-size: var(--step-3);
+  font-weight: 700;
 }
 
 .hero--title {
@@ -70,7 +81,7 @@ body {
 }
 
 .img-logo {
-  width: 50px;
+  width: 70px;
 }
 
 .hero--section {
@@ -98,6 +109,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
+
   border-radius: inherit;
   background-color: hsl(350, 100%, 95%);
 
@@ -106,46 +118,51 @@ body {
   background-image: var(--bg-img);
   background-position: top left;
   background-repeat: no-repeat;
-  background-size: 13%;
+  background-size: Min(20%, 250px);
 }
 
 .hero--content {
-
-
   grid-area: content;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   gap: 3rem;
-
-  margin-inline: 1rem;
-  margin-block: 2rem;
+  
+  margin-inline: 1.25rem;
+  margin-block-start: Min(10rem, 30%);
+  margin-block-end: 3rem;
 }
 
 .hero--button {
-  display: inline-block;
-  cursor: pointer;
-  padding: 1rem 2rem;
   background-image: linear-gradient(135deg, $primaryColor 45%, $secondaryColor);
+  
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 700;
   font-size: var(--step-0);
   color: $backgroundColor;
-  width: max-content;
-  border-radius: 3rem;
   text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
+  
+  border-radius: 3rem;
+  padding: 1rem 2rem;
+  width: max-content;
   box-shadow: $primaryColor 0px 1px 15px 0px;
+  
+  transition: transform 200ms ease-in;
+  
   
   position: relative;
 }
-  
+
+.hero--button:hover {
+  transform: translateY(-5px);
+}
 .hero--button::before {
-  content: "";
-  position: absolute;
-  
   background-image: linear-gradient(135deg, $primaryColor 45%, $secondaryColor);
+
+  content: "";
+  
   top: 120%;
   left: 0;
   width: 100%;
@@ -153,24 +170,18 @@ body {
   
   transform: perspective(3em) rotateX(40deg) scale(1, 0.35);
   filter: blur(1em);
+
+  position: absolute;
 }
 
 
 .hero--img {
   grid-area: img;    
-  background-image: url('assets/images/orange-bg-remove.png');
+  background-image: url('/assets/images/orange-bg-remove.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 
-  // display: flex;
-  // align-items: start;
-  // justify-content: center;
-  // writing-mode: vertical-rl;
-
-  // font-size: 5rem;
-  // color: $secondaryColor;
-  // letter-spacing: 100px;
 }
 
 
@@ -183,7 +194,8 @@ body {
       "img";
       margin-inline: 1rem;
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: 0.4fr .6fr;
+      row-gap: 2rem;
     }
   
     .hero--title {
@@ -196,4 +208,5 @@ body {
     .hero--section {
       margin-inline: 0;
     }
-  }
+}
+
